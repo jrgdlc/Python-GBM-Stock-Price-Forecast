@@ -15,7 +15,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.ensemble import GradientBoostingRegressor
 from datetime import datetime, timedelta
 from ta import momentum,  volatility  # Technical Analysis library
-from config import POLYGON_API_KEY
+# from config import POLYGON_API_KEY
 import requests
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
