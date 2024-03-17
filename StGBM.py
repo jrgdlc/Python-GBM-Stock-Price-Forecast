@@ -28,7 +28,7 @@ st.write("Welcome! This lightweight application attempts to predict the future s
 st.write("A more detailed explanation can be found on both the GitHub repository and on my personal portfolio website (jrgdlc.github.io/portfolio).")
 
 # Using Polygon.io API (replace with your own key)
-api_key = st.secrets("POLYGON_API_KEY")
+api_key = st.secrets["POLYGON_API_KEY"]
 
 st.subheader("Inputs")
 
