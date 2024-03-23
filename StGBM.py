@@ -101,10 +101,8 @@ def predict_stock_price():
         df.iloc[:original_shape[0], :]  # Return partially filled DataFrame
     else:
         df
-        
-    
-    st.write("The most time-consuming and resource-intensive function is the hyperparameter tuning that needs to take place in order to best adjust the model and ensure a good performance.")
-    
+      
+    st.write("The most time-consuming and resource-intensive function is the hyperparameter tuning that needs to take place in order to best adjust the model and ensure a good performance. Please wait up to 20 seconds for the model to finish training...")    
     # Split data into features (X) and target (y)
     X = df[features].iloc[:-n]  # Select features for training
     y = df['c'].iloc[:-n]  # Closing price as target variable
@@ -138,7 +136,8 @@ def predict_stock_price():
     print("Best Model:", best_model)
     
     gbm = best_model
-    
+
+    st.write("Training done!")
     
     # Fit (train) the model on the training data
     model = gbm.fit(X_train, y_train)
