@@ -26,6 +26,7 @@ st.title("Gradient Boosting Model (GBM) Stock Price Predictor")
 #Intro
 st.write("Welcome! This lightweight application attempts to predict the future stock price of any stock using a GBM machine learning model. However, the model has it's limitations and should definitely NOT be construed as investment or financial advice.")
 st.write("A more detailed explanation can be found on both the GitHub repository and on my personal portfolio website (jrgdlc.github.io/portfolio).")
+st.write("This program aims to provide the user with as much control as possible over the model, highlighting the dynamism of this script. Therefore, there are three inputs that the user controls: the stock ticker, the start date for training the model, and the number of days to forecast. You should experiment playing around with these! Typically, we would expect that more data would mean a more powerful model, thus if you set a start date very far back the model should in theory be more accurate as it can observe more of the trends in the stock.")
 
 # Using Polygon.io API (replace with your own key)
 api_key = st.secrets["POLYGON_API_KEY"]
@@ -34,6 +35,11 @@ st.subheader("Inputs")
 
 ticker = st.text_input("Enter the ticker symbol of the stock: ")
 start_date = st.date_input("Enter the start date in YYYY-MM-DD format: ")
+if start_date <= date.today() - timedelta(days=200):
+  st.success("Start date is valid and at least 200 days ago.")
+else:
+  st.error("Error: Please enter a start date that is at least 100 days ago.")
+
 n = int(st.slider("How far would you like to forecast (max 12):", 1, 12))
 end_date = pd.to_datetime('today').strftime('%Y-%m-%d')  # Get today's date in YYYY-MM-DD format
 
@@ -192,3 +198,6 @@ def predict_stock_price():
 
 if st.button("Predict Stock Price"):
   predict_stock_price()
+
+st.subheader("About this Project")
+st.write("This project was my first venture into using a machine learning model with hyperparameter tuning. The goal for the project was to emphasize user interaction through a simple front-end as my other projects have instead been detailed reports on the statistical methods and diagnostics used. Therefore, this project uses streamlit as a frontend, numpy and pandas for data manipulation and preprocessing, technical analysis (ta) for feature engineering, and scikit-learn for building the GradientBoostingRegressor Model and for hyperparameter tuning. Finally, the plot uses matplotlib. Aside from Python packages, the project also integrates an API to access the stock information from Polygon.ai.")
