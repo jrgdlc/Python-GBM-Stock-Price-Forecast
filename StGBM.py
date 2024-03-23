@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.ensemble import GradientBoostingRegressor
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from ta import momentum,  volatility  # Technical Analysis library
 # from config import POLYGON_API_KEY
 import requests
