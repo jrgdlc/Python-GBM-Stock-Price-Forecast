@@ -34,7 +34,7 @@ api_key = st.secrets["POLYGON_API_KEY"]
 st.subheader("Inputs")
 
 ticker = st.text_input("Enter the ticker symbol of the stock: ")
-start_date = st.date_input("Enter the start date in YYYY-MM-DD format: ")
+start_date = st.date_input("Enter the start date in YYYY-MM-DD format: ", max_value=datetime.today())
 if start_date <= date.today() - timedelta(days=200):
   st.success("Start date is valid and at least 200 days ago.")
 else:
