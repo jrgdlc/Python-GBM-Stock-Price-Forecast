@@ -38,7 +38,7 @@ start_date = st.date_input("Enter the start date in YYYY-MM-DD format: ", max_va
 if start_date <= date.today() - timedelta(days=200):
   st.success("Start date is valid and at least 200 days ago.")
 else:
-  st.error("Error: Please enter a start date that is at least 100 days ago.")
+  st.error("Error: Please enter a start date that is at least 200 days ago.")
 
 n = int(st.slider("How far would you like to forecast (max 12):", 1, 12))
 end_date = pd.to_datetime('today').strftime('%Y-%m-%d')  # Get today's date in YYYY-MM-DD format
